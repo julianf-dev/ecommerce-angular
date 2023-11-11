@@ -31,6 +31,11 @@ export const routes: Routes = [
         loadChildren: () => import('./../users/users.routes').then(m => m.routes),
         title: 'App - Users'
       },
+      {
+        path: 'gallery',
+        loadComponent: () => import('src/app/pages/gallery/gallery.component'),
+        title: 'App - Gallery'
+      },
     ]
   }
 ];
