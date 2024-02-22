@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { authGuardFn } from '@guards/auth-fn.guard';
-
 export const routes: Routes = [
   {
     path: '',
@@ -15,5 +14,5 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.routes').then(m => m.routes),
-  }
+  },
 ];
