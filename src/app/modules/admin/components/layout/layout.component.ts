@@ -25,7 +25,7 @@ export class LayoutComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
   private uiService = inject(UIService);
-  @ViewChild('drawer') drawer!: MatDrawer;
+  @ViewChild('drawer', { static: true}) drawer!: MatDrawer;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
