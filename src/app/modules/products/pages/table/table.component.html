@@ -10,7 +10,7 @@
     <mat-icon>favorite</mat-icon>
   </button>
 </mat-toolbar>
-@if (showProgress) {
+@if (showProgress()) {
   <mat-progress-bar mode="query"></mat-progress-bar>
 }
 <mat-card>

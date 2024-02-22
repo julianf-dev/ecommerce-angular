@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 
 import { TableDataSource } from '@utils/data-source';
 import { ProductService } from '@services/product.service';
@@ -19,20 +19,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatProgressBarModule, MatCardModule, MatTableModule, NgOptimizedImage, CurrencyPipe]
 })
 export class TableComponent implements OnInit {
+
   displayedColumns: string[] = ['id', 'title', 'price', 'images', 'category', 'actions'];
   dataSource = new TableDataSource<Product>();
   private productService = inject(ProductService);
   private uiService = inject(UIService);
 
   counter: null | number = null;
-  showProgress = false;
+  showProgress = signal(false);
 
   ngOnInit(): void {
-    this.showProgress = true;
+    this.showProgress.set(true);
     this.productService.getAll().subscribe((data) => {
       this.dataSource.init(data);
       this.counter = this.dataSource.getTotal();
-      this.showProgress = false;
+      this.showProgress.set(false);
     });
   }
 
