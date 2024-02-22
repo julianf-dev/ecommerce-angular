@@ -7,7 +7,7 @@ import { Product } from '@models/product.model';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { NgIf, NgFor, NgOptimizedImage, CurrencyPipe } from '@angular/common';
+import { NgOptimizedImage, CurrencyPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     selector: 'app-table',
     templateUrl: './table.component.html',
     standalone: true,
-    imports: [MatToolbarModule, MatButtonModule, MatIconModule, NgIf, MatProgressBarModule, MatCardModule, MatTableModule, NgFor, NgOptimizedImage, CurrencyPipe]
+    imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatProgressBarModule, MatCardModule, MatTableModule, NgOptimizedImage, CurrencyPipe]
 })
 export class TableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'price', 'images', 'category', 'actions'];
